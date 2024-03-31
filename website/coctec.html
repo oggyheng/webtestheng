@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Contact Us</title>
+    <style>
+        body {
+            background-color: #e6ffe6; /* Green background color */
+            color: #000; /* Black text color */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="contact" class="container mt-5">
+        <h1 class="text-center mb-4">Contact Us</h1>
+        <p class="text-center">Have a question? You can write here.</p>
+        <form id="contactForm">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="name">Your Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="John Doe">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="john@example.com">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Your message..."></textarea>
+            </div>
+            <button type="button" onclick="displayFormData()" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
+
+    <script>
+        function displayFormData() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            // Display data in a table
+            var table = document.createElement('table');
+            var tbody = table.createTBody();
+            
+            var row1 = tbody.insertRow(0);
+            var cell1_1 = row1.insertCell(0);
+            var cell1_2 = row1.insertCell(1);
+            cell1_1.innerHTML = '<strong>Your Name:</strong>';
+            cell1_2.innerHTML = name;
+
+            var row2 = tbody.insertRow(1);
+            var cell2_1 = row2.insertCell(0);
+            var cell2_2 = row2.insertCell(1);
+            cell2_1.innerHTML = '<strong>Email:</strong>';
+            cell2_2.innerHTML = email;
+
+            var row3 = tbody.insertRow(2);
+            var cell3_1 = row3.insertCell(0);
+            var cell3_2 = row3.insertCell(1);
+            cell3_1.innerHTML = '<strong>Message:</strong>';
+            cell3_2.innerHTML = message;
+
+            document.body.appendChild(table);
+        }
+    </script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
